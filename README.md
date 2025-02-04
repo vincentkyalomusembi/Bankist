@@ -11,7 +11,7 @@ Bankist is a simple and interactive website project aimed at simulating basic on
 ## Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/vincentkyalomusembi/Bankist.git
    ```
 2. Navigate to the project folder and open `index.html` in your browser.
 
