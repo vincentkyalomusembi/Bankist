@@ -59,6 +59,28 @@ btnScrollTo.addEventListener('click', function (e) {
 });
 ////////////////////////
 //page navigation
+/*
+document.querySelector('.nav__links').forEach(function (el) {
+  el,addEventListener('click', function (e) {
+    e.preventDefault();
+    const id = this.getAttribute('href');
+    console.log(id);
+    this.document.querySelector(id).scrollIntoView({behavior: 'smooth'});
+  });
+});
+*/
+//Add event listener to common parent element
+//Determine what element originated the event
+
+document.querySelector('.nav__links').addEventListener('click', function (e){
+  e.preventDefault();
+
+  //Matching strategy
+  if (e.target.classList.contains('nav__link')) {
+  const id = e.target.getAttribute('href');
+  document.querySelector(id).scrollIntoView({behavior: 'smooth'});
+  }
+});
 //////////////////////////////
 ///////////////////////////////
 //////////////////////////////
