@@ -81,6 +81,100 @@ document.querySelector('.nav__links').addEventListener('click', function (e){
   document.querySelector(id).scrollIntoView({behavior: 'smooth'});
   }
 });
+
+const nav = document.querySelector('.nav')
+
+// Tabbed component
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tableContent = document.querySelectorAll('.operations__conteny');
+
+tabsContainer.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.operations__tab');
+
+  //Guard clause
+  if (!clicked) return;
+
+  //Active tab
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  clicked.classList.add('operations__tab--active');
+
+  //Active content area
+  tableContent.forEach(t => t.classList.remove('operations__content--active'));
+  document.querySelector(`.operations__content--${clicked.dataset.tab}`).classList.add('operations__content--active');
+});
+
+//Menu fade animation
+const handleHover = function(e){
+  if (e.target.classList.contains('nav__link')){
+    const link = e.target;
+    const siblings = link.closet('.nav').querySelecorAll('.nav__link');
+    const logo = link.closet('.nav').querySelector('img');
+
+    siblings.forEach(el => {
+      if (el !== link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+
+nav.addEventListener('mouseover',handleHover.bind(0.5));
+
+nav.addEventListener('mouseout', handleHover.bind(1));
+
+/*
+// Sticky navigation
+const initialCoords = section1.getBoundingClientReact();
+
+console.log(initialCoords);
+
+window.addEventListener('scroll', function (){
+  console.log(this.window.scrollY);
+
+  if (this.window.scrollY > initialCoords.top) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+});
+*/
+
+// Sticky navigation: Intersection observer API
+
+/*
+const obsCallback = function (entries, observer) {
+  entries.forEach(entry => {
+    console.log(entry);
+
+    if (!entry.isIntersecting) nav.classList.add('sticky');
+    else nav.classList.remove('sticky');
+});
+};
+
+const obsOption = {
+  root: null,
+  threshold: 0,
+};
+
+const observer = new IntersectionObserver(obsCallback, obsOption);
+observer.observe(section1);
+*/
+
+const header = document.querySelector('.header');
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+
+  if (!entry.IsIntersecting) nav.classList.add('sticky');
+  else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: '-90px',
+
+});
+
+headerObserver.observe(header);
 //////////////////////////////
 ///////////////////////////////
 //////////////////////////////
@@ -219,7 +313,7 @@ document.querySelector('.nav').addEventListener('click', function (e) {
   this.style.backgroundColor = randomColor();
   console.log('NAV', e.target,e.currentTarget);
 });
-*/
+
 
 const h1 = document.querySelector('h1');
 
@@ -248,3 +342,4 @@ console.log(h1.parentElement.children.children);
 [...h1.parentElement.children].forEach(function (el) {
   if (el !== h1) el.style.transform = 'scale(0.5)';
 });
+*/
