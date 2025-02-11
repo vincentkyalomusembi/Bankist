@@ -16,12 +16,15 @@ Bankist is a simple and interactive website project aimed at simulating basic on
 2. Navigate to the project folder and open `index.html` in your browser.
 
 ## Features (Planned)
-- User login functionality
-- Transaction history
-- Fund transfers
-- Account management
+- Open account
+- Testimonials
+- Operations
+  
 
 ## Progress Updates
-This project is currently in its early development stages. Stay tuned for more updates!
+This project is currently in its development stages. Stay tuned for more updates!
 
-![image](https://github.com/user-attachments/assets/7d822bcb-a5fa-4adf-877b-c43d47f96399)
+![image](https://github.com/user-attachments/assets/54bf6acf-36b3-43c1-a583-fe5ccf34d9e9)
+
+## Objective
+-This project helps to understand DOM relation with javascript
